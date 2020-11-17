@@ -16,7 +16,7 @@ def call(String name = 'human') {
             }
             stage('Start Node Server') { 
                 steps {
-                    sh 'node index.js' 
+                    sh 'node ./src/index.js' 
                 }
             }
         }
