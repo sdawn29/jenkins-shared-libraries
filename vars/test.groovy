@@ -6,7 +6,7 @@ def call(String port, String src) {
         stages {
             stage('Port Kill') {
                 steps {
-                    echo ${port}
+                    echo "sudo fuser -n tcp -k ${port}"
                 }
             }
             stage('Initialization') {
@@ -21,7 +21,7 @@ def call(String port, String src) {
             }
             stage('Start Node Server') { 
                 steps {
-                    echo ${src}
+                    echo "node ${src}" 
                 }
             }
         }
