@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call(port) {
+def call(String port) {
     pipeline {
         agent any
         stages {
