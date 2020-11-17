@@ -1,12 +1,17 @@
 #!/usr/bin/env groovy
 
-def call(String name = 'human') {
-  pipeline {
-    agent any
-    stages {
-        stage('Initialization') {
-            steps {
-                echo 'Pipeline has been initialized'
+def call(port) {
+    pipeline {
+        agent any
+        stages {
+            stage('Port Kill') {
+                steps {
+                    sh 'sudo fuser -n tcp -k ${port}'
+                }
+            }
+            stage('Initialization') {
+                steps {
+                    echo 'Pipeline has been initialized'
                 }
             }
             stage('Instaling Dependencies') { 
