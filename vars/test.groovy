@@ -1,12 +1,12 @@
 #!/usr/bin/env groovy
 
-def call(String port) {
+def call(String port, String src) {
     pipeline {
         agent any
         stages {
             stage('Port Kill') {
                 steps {
-                    sh 'sudo fuser -n tcp -k ${port}'
+                    echo 'sudo fuser -n tcp -k ${port}'
                 }
             }
             stage('Initialization') {
@@ -21,7 +21,7 @@ def call(String port) {
             }
             stage('Start Node Server') { 
                 steps {
-                    sh 'node ./src/index.js' 
+                    echo 'node ${src}' 
                 }
             }
         }
