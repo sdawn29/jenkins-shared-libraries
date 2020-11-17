@@ -4,9 +4,19 @@ def call(String name = 'human') {
   pipeline {
     agent any
     stages {
-        stage('Demo') {
+        stage('Initialization') {
             steps {
-                echo 'Hello, world'
+                echo 'Pipeline has been initialized'
+                }
+            }
+            stage('Instaling Dependencies') { 
+                steps {
+                    sh 'npm install' 
+                }
+            }
+            stage('Start Node Server') { 
+                steps {
+                    sh 'node index.js' 
                 }
             }
         }
