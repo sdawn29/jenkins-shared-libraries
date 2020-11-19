@@ -22,7 +22,7 @@ def call(String port, String src) {
             stage('Start Node Server') { 
                 steps {
                     sh "nohup node ${src} &"
-                    echo "Server is listening in port ${port}
+                    echo "Server is listening in port ${port}"
                 }
             }
         }
