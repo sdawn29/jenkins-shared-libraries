@@ -21,7 +21,7 @@ def call(String port, String src) {
             }
             stage('Start Node Server') { 
                 steps {
-                    echo "node ${src}" 
+                    sh "node ${src}" 
                 }
             }
         }
