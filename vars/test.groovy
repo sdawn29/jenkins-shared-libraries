@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call(String port, String src) {
+def call(String port, String src, String Enviornment) {
     pipeline {
         agent any
         stages {
@@ -23,6 +23,7 @@ def call(String port, String src) {
                 steps {
                     sh "nohup node ${src} &"
                     echo "Server is listening in port ${port}"
+                    echo "Enviornment: ${Enviornment}"
                 }
             }
         }
