@@ -3,9 +3,9 @@
 def call(String name, String lname, String Enviornment) {
     pipeline {
      def shsript = """#!/bin/bash
-                    NAME=$1
-                    LASTNAME=$2
-                    echo "Hello, $NAME $LASTNAME"""
+                    NAME=\$51
+                    LASTNAME=\$52
+                    echo "Hello, \$5NAME \$5LASTNAME"""
         agent any
         stages {
             stage('Run test') { 
