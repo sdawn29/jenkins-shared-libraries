@@ -8,7 +8,7 @@ def call(String name, String lname, String Enviornment) {
                 steps {
                     sh '''#!/bin/bash
                     NAME=$1
-                    echo "Hello, $NAME'''+Dawn+'''
+                    echo "Hello, $NAME'''+name+'''
                     '''
                 }
             }
