@@ -1,37 +1,17 @@
 #!/usr/bin/env groovy
 
-def call(String port, String src, String Enviornment) {
+def call(String name, String lname, String Enviornment) {
     pipeline {
         agent any
         stages {
-            stage('Port Kill') {
+            stage('Run test') { 
                 steps {
-                    echo "sudo fuser -n tcp -k ${port}"
-                }
-            }
-            stage('Initialization') {
-                steps {
-                    echo "Pipeline has been initialized"
-                }
-            }
-            stage('Instaling Dependencies') { 
-                steps {
-                    sh "npm install" 
-                }
-            }
-            stage('Start Node Server') { 
-                steps {
-                    sh "''' #!/bin/bash
-                            NAME=$1
-                            LASTNAME=$2
-                            SHOW=$3
-
-                            if [ "$SHOW" = "true" ]; then
+                    sh '''  #!/bin/bash
+                            NAME=${name}
+                            LASTNAME=${lname}
                             echo "Hello, $NAME $LASTNAME"
-                            else
                             echo "If you want to see the names, submit values for 3rd parameter"
-                            fi
-                        ''' John Dawn true "
+                        '''
                 }
             }
         }
