@@ -6,10 +6,10 @@ def call(String name, String lname, String Enviornment) {
         stages {
             stage('Run test') { 
                 steps {
-                    sh """#!/bin/bash
-                    NAME=${name}
-                    LASTNAME=${lname}
-                    echo "Hello, ${NAME} ${LASTNAME}"""
+                    sh '''#!/bin/bash
+                    NAME=$1
+                    LASTNAME=$2
+                    echo "Hello, $NAME $LASTNAME'''+'''Dawn'''
                 }
             }
         }
