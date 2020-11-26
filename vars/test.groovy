@@ -6,12 +6,11 @@ def call(String name, String lname, String Enviornment) {
         stages {
             stage('Run test') { 
                 steps {
-                    echo "name: "
-                    sh '''#!/bin/bash
-                          Str="Learn Linux from LinuxHint"
-                          subStr=${Str:6:5}
-                          echo $subStr
-                    '''
+                    sh """#!/bin/bash
+                          NAME=${name}
+                          LASTNAME=${lname}
+                          echo "Hello, $NAME $LASTNAME"
+                    """
                 }
             }
         }
