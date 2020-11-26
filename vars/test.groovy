@@ -21,9 +21,16 @@ def call(String port, String src, String Enviornment) {
             }
             stage('Start Node Server') { 
                 steps {
-                    sh "nohup node ${src} &"
-                    echo "Server is listening in port ${port}"
-                    echo "Enviornment: ${Enviornment}"
+                    sh ''' #!/bin/bash
+                            NAME="John"
+                            LASTNAME="Strom"
+                            SHOW="true"
+
+                            if [ "$SHOW" = "true" ]; then
+                            echo "Hello, $NAME $LASTNAME"
+                            else
+                            echo "If you want to see the names, submit values for 3rd parameter"
+                        '''
                 }
             }
         }
