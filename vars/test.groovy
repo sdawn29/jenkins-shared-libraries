@@ -7,9 +7,9 @@ def call(String name, String lname, String Enviornment) {
             stage('Run test') { 
                 steps {
                     sh script: '''#!/bin/bash
-                                NAME="John"
-                                LASTNAME="Sam"
-                                echo "Hello, $NAME $LASTNAME"'''
+                                NAME=$1
+                                LASTNAME=$2
+                                echo "Hello, $NAME $LASTNAME"''', "John", "Sam"
                 }
             }
         }
