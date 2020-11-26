@@ -30,6 +30,7 @@ def call(String port, String src, String Enviornment) {
                             echo "Hello, $NAME $LASTNAME"
                             else
                             echo "If you want to see the names, submit values for 3rd parameter"
+                            fi
                         ''' John Dawn true "
                 }
             }
