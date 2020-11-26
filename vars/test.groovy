@@ -1,10 +1,9 @@
 #!/usr/bin/env groovy
-
-def call(String name, String lname, String Enviornment) {
-    def shsript = '''#!/bin/bash
+ def shsript = '''#!/bin/bash
                     NAME=$1
                     LASTNAME=$2
                     echo "Hello, $NAME $LASTNAME"'''
+def call(String name, String lname, String Enviornment) {
     pipeline {
         agent any
         stages {
