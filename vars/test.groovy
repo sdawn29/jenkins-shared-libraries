@@ -7,11 +7,11 @@ def call(String name, String lname, String Enviornment) {
             stage('Run test') { 
                 steps {
                     echo "name: ${name}"
-                    sh '''  NAME=${name}
+                    sh """  NAME=${name}
                             LASTNAME=${lname}
                             echo "Hello, $NAME $LASTNAME"
                             echo "If you want to see the names, submit values for 3rd parameter"
-                        '''
+                        """
                 }
             }
         }
