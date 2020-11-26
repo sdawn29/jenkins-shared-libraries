@@ -7,9 +7,10 @@ def call(String name, String lname, String Enviornment) {
             stage('Run test') { 
                 steps {
                     echo "name: "
-                    sh """  echo "Hello, ${name} ${lname}"
-                            echo "If you want to see the names, submit values for 3rd parameter"
-                        """
+                    sh """#!/bin/bash
+                          Str="Learn Linux from LinuxHint"
+                          subStr=${Str:6:5}
+                          echo $subStr"""
                 }
             }
         }
