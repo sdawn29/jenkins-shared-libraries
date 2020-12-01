@@ -1,27 +1,15 @@
 #!/usr/bin/env groovy
-
-def call(String port, String src) {
-    pipeline {
+ 
+def call(String name, String lname, String Enviornment) {
+ pipeline {
         agent any
         stages {
-            stage('Port Kill') {
+            stage('Run test') { 
                 steps {
-                    sh "sudo fuser -n tcp -k ${port}"
-                }
-            }
-            stage('Initialization') {
-                steps {
-                    echo "Pipeline has been initialized"
-                }
-            }
-            stage('Instaling Dependencies') { 
-                steps {
-                    sh "npm install" 
-                }
-            }
-            stage('Start Node Server') { 
-                steps {
-                    sh "node ${src}" 
+                    sh '''#!/bin/bash
+                    NAME=$1
+                    echo "Hello, $NAME'''+name+'''
+                    '''
                 }
             }
         }
